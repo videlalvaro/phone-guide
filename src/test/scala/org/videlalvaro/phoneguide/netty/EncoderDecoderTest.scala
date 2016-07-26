@@ -1,12 +1,12 @@
 package org.videlalvaro.phoneguide.netty
 
 import io.netty.channel.embedded.EmbeddedChannel
-import org.scalatest.prop.{Checkers, GeneratorDrivenPropertyChecks}
+import org.scalatest.prop.GeneratorDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
 import org.videlalvaro.phoneguide.PhoneNumber
 import org.videlalvaro.phoneguide.generators.Generators._
 
-class EncoderDecoderTest extends FunSuite with Checkers with GeneratorDrivenPropertyChecks with Matchers {
+class EncoderDecoderTest extends FunSuite with GeneratorDrivenPropertyChecks with Matchers {
   test("netty encode/decode message") {
     forAll { (phoneNumber: PhoneNumber) =>
       val channel = new EmbeddedChannel(new MessageEncoder(), new MessageDecoder())

@@ -1,15 +1,14 @@
 package org.videlalvaro.phoneguide
 
-import org.scalatest.{Matchers, FunSuite}
-import org.scalatest.prop.{GeneratorDrivenPropertyChecks, Checkers}
-
+import org.scalatest.prop.GeneratorDrivenPropertyChecks
+import org.scalatest.{FunSuite, Matchers}
 import org.videlalvaro.phoneguide.generators.Generators._
 
 
 /**
   * See the properties that equals should satisfy on Item 9 from Effective Java.
   */
-class PhoneNumberTest extends FunSuite with Checkers with GeneratorDrivenPropertyChecks with Matchers {
+class PhoneNumberTest extends FunSuite with GeneratorDrivenPropertyChecks with Matchers {
 
   test("equals should be reflexive") {
     forAll { (phoneNumber: PhoneNumber) =>
